@@ -22,7 +22,9 @@
 #'                         binwidth = 50, bins_l = 20, bins_r = 20)
 #' prepped_data <- prep_data_for_fit(binned_data, zstar = 10000, binwidth = 50,
 #'                                   bins_l = 20, bins_r = 20, poly = 4)
-#' firstpass <- fit_bunching(prepped_data$data_binned, prepped_data$model_formula)
+#' firstpass <- fit_bunching(prepped_data$data_binned,
+#'                           prepped_data$model_formula,
+#'                           binwidth = 50)
 #' corrected <- do_correction(zstar = 10000, binwidth = 50,
 #'                            data_prepped = prepped_data$data_binned,
 #'                            firstpass_results = firstpass)
@@ -54,7 +56,7 @@ do_correction <- function(zstar, binwidth, data_prepped, firstpass_results,
     iteration <- 1
     while(b_diff >= 1 & iteration < correct_iter_max){
         data_prepped$freq <- data_prepped$freq_orig * (1 + (bunchers_excess_updated*data_prepped$location_shift_sca))
-        iteration_results <- bunching::fit_bunching(data_prepped, model_formula, notch, zD_bin)
+        iteration_results <- bunching::fit_bunching(data_prepped, model_formula, binwidth, notch, zD_bin)
         bunchers_excess_updated <- iteration_results$bunchers_excess
         c0_updated <- iteration_results$c0
         # add data to excess_updated_df

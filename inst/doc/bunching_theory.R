@@ -1,11 +1,11 @@
-## ---- include = FALSE----------------------------------------------------
+## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(fig.width=4, fig.height = 4, out.width="45%", fig.align="center",
                       echo=FALSE, fig.pos = 'h',
                       collapse = TRUE,
                       comment = "#>"
                       )
 
-## ----setup, include = F--------------------------------------------------
+## ----setup, include = F-------------------------------------------------------
 library(bunching)
 
 ## ---- fig.show='hold', fig.cap="\\label{fig:kinklinear}Optimization with Linear Constraints", fig.subcap=c("\\label{fig:kinklinear_constraint}Optimization", "\\label{fig:kinklinear_density}Density")----

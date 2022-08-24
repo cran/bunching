@@ -1,11 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# bunching <img src='man/figures/bunching_logo.png' align="right" height="160" />
+# bunching
 
-<!-- badges: start -->
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/bunching)](https://cran.r-project.org/package=bunching)
+[![CRAN_Downloads_Badge](https://cranlogs.r-pkg.org/badges/bunching)](https://cranlogs.r-pkg.org/badges/bunching)
 
-<!-- badges: end -->
+<img src='man/figures/bunching_logo.png' style='width: 20%; height: 20%' />
 
 ## Overview
 
@@ -23,18 +24,18 @@ dominated region, fraction in dominated region in notch setting, etc.)
 which can be used for further analysis, e.g. incorporation into
 structural models that rely on bunching moments. The package also
 provides an exploratory viusalization function to speed up pre-analysis,
-and produces plots in the [Chetty et al. (2011)](https://doi.org/10.1093/qje/qjr013) style with lots of
-options on editing the plot
-appearance.
+and produces plots in the [Chetty et
+al. (2011)](https://doi.org/10.1093/qje/qjr013) style with lots of
+options on editing the plot appearance.
 
 ## Installation
 
-<!--You can install the released version of bunching from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of bunching from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("bunching")
 ```
--->
 
 You can install the development version from
 [GitHub](https://github.com/) with:

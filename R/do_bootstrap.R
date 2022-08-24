@@ -25,9 +25,12 @@
 #'                         binwidth = 50, bins_l = 20, bins_r = 20)
 #' prepped_data <- prep_data_for_fit(binned_data, zstar = 10000, binwidth = 50,
 #'                                   bins_l = 20, bins_r = 20, poly = 4)
-#' firstpass <- fit_bunching(prepped_data$data_binned, prepped_data$model_formula)
+#' firstpass <- fit_bunching(prepped_data$data_binned,
+#'                           prepped_data$model_formula,
+#'                           binwidth = 50)
 #' residuals_for_boot <- fit_bunching(prepped_data$data_binned,
-#'                                    prepped_data$model_formula)$residuals
+#'                                    prepped_data$model_formula,
+#'                                    binwidth = 50)$residuals
 #' boot_results <- do_bootstrap(zstar = 10000, binwidth = 50,
 #'                              firstpass_prep = prepped_data,
 #'                              residuals = residuals_for_boot,
@@ -55,7 +58,7 @@ do_bootstrap <- function(zstar, binwidth, firstpass_prep, residuals, n_boot = 10
         # make this "freq" so we can pass to fit_bunching which requires "freq ~ ..."
         data_for_boot$freq <- data_for_boot$freq_orig
         # next, re-run first pass on this new series
-        booted_firstpass <- bunching::fit_bunching(data_for_boot, model, notch, zD_bin)
+        booted_firstpass <- bunching::fit_bunching(data_for_boot, model, binwidth, notch, zD_bin)
 
         # if no need for integration correction, just take this b
         if(correct == FALSE) {

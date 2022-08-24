@@ -4,20 +4,55 @@
 \alias{bunchit}
 \title{Bunching Estimator}
 \usage{
-bunchit(z_vector, binv = "median", zstar, binwidth, bins_l, bins_r,
-  poly = 9, bins_excl_l = 0, bins_excl_r = 0, extra_fe = NA,
-  rn = NA, n_boot = 100, correct = TRUE, correct_above_zu = FALSE,
-  correct_iter_max = 200, t0, t1, notch = FALSE, force_notch = FALSE,
-  e_parametric = FALSE, e_parametric_lb = 1e-04, e_parametric_ub = 3,
-  seed = NA, p_title = "", p_xtitle = deparse(substitute(z_vector)),
-  p_ytitle = "Count", p_title_size = 11, p_axis_title_size = 10,
-  p_axis_val_size = 8.5, p_miny = 0, p_maxy = NA, p_ybreaks = NA,
-  p_freq_color = "black", p_cf_color = "maroon",
-  p_zstar_color = "red", p_grid_major_y_color = "lightgrey",
-  p_freq_size = 0.5, p_freq_msize = 1, p_cf_size = 0.5,
-  p_zstar_size = 0.5, p_b = FALSE, p_e = FALSE, p_b_e_xpos = NA,
-  p_b_e_ypos = NA, p_b_e_size = 3, p_domregion_color = "blue",
-  p_domregion_ltype = "longdash")
+bunchit(
+  z_vector,
+  binv = "median",
+  zstar,
+  binwidth,
+  bins_l,
+  bins_r,
+  poly = 9,
+  bins_excl_l = 0,
+  bins_excl_r = 0,
+  extra_fe = NA,
+  rn = NA,
+  n_boot = 100,
+  correct = TRUE,
+  correct_above_zu = FALSE,
+  correct_iter_max = 200,
+  t0,
+  t1,
+  notch = FALSE,
+  force_notch = FALSE,
+  e_parametric = FALSE,
+  e_parametric_lb = 1e-04,
+  e_parametric_ub = 3,
+  seed = NA,
+  p_title = "",
+  p_xtitle = deparse(substitute(z_vector)),
+  p_ytitle = "Count",
+  p_title_size = 11,
+  p_axis_title_size = 10,
+  p_axis_val_size = 8.5,
+  p_miny = 0,
+  p_maxy = NA,
+  p_ybreaks = NA,
+  p_freq_color = "black",
+  p_cf_color = "maroon",
+  p_zstar_color = "red",
+  p_grid_major_y_color = "lightgrey",
+  p_freq_size = 0.5,
+  p_freq_msize = 1,
+  p_cf_size = 0.5,
+  p_zstar_size = 0.5,
+  p_b = FALSE,
+  p_e = FALSE,
+  p_b_e_xpos = NA,
+  p_b_e_ypos = NA,
+  p_b_e_size = 3,
+  p_domregion_color = "blue",
+  p_domregion_ltype = "longdash"
+)
 }
 \arguments{
 \item{z_vector}{a numeric vector of (unbinned) data.}
@@ -146,6 +181,7 @@ Implement the bunching estimator in a kink or notch setting.
 bunchit implements the bunching estimator in both kink and notch settings. It bins a given numeric vector, fits a counterfactual density, and estimates the bunching mass (normalized and not), the elasticity and the location of the marginal buncher. In the case of notches, it also finds the dominated region and estimates the fraction of observations located in it.
 }
 \examples{
+\dontrun{
 # First, load the example data
 data(bunching_data)
 
@@ -199,6 +235,7 @@ notch <- bunchit(z_vector = bunching_data$notch_vector, zstar = 10000, binwidth 
                  correct = FALSE, notch = TRUE,p_b = TRUE, p_b_e_xpos = 8900,
                  n_boot = 0)
 notch$plot
+}
 }
 \seealso{
 \code{\link{plot_hist}}
